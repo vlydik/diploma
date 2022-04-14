@@ -111,7 +111,6 @@ const Main = () => {
                     <input type='text' autocomplete='Address' name='address' placeholder='Your address'></input>
                 </div>  
             </div>
-            
             <div className={classes.form__radio}>
                 <input id="basic" type="radio" name="radio" value="basic" checked/>
                 <label for="basic">Basic</label>
@@ -130,10 +129,6 @@ const Main = () => {
                 <button>Submit</button>
             </div>
         </div>
-   
-
-
-        
         </Fragment>
     );
 }
