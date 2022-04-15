@@ -1,4 +1,4 @@
-import React, {useContext, useCallback} from "react";
+import React, {useContext, useCallback, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 import classes from './Header.module.css';
@@ -9,15 +9,20 @@ const Header = () => {
   const authCtx = useContext(AuthContext);
 
   const isLoggedIn = authCtx.isLogged;
-
-  const loginHandler = useCallback(() => history.push('/login'), [history]);
+  
+  const loginHandler = () => {
+    history.push('/login');
+  }
   const logoutHandler = () => {
 
+  }
+  const mainPageHandler = () => {
+    history.push('/')
   }
 
     return (
         <header className={classes.header}>
-          <div className={classes.logo}>Flex</div>
+          <div className={classes.logo} onClick={mainPageHandler}>Flex</div>
             <nav>
               <ul>
                 {!isLoggedIn && <li><a>About</a></li>}

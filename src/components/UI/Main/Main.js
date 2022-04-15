@@ -1,4 +1,4 @@
-import react, { Fragment } from "react";
+import React, { Fragment } from "react";
 import classes from './Main.module.css';
 import star from '../../../gallery/star.svg';
 import chat from '../../../gallery/chat.svg';
@@ -56,18 +56,18 @@ const Main = () => {
             <a>Reliable speed. 24/7 Support. All the time.</a>
         </section>
         <div className={classes.product__cards}>
-            <div class={classes.card}>
+            <div className={classes.card}>
                 <h1>Standard</h1>
-                <p class={classes.price}>30zl/month</p>
+                <p className={classes.price}>30zl/month</p>
                 <b>100 Mb/s</b>
                 <p>Services included:</p>
                 <b>Internet Analysis</b>
                 <br/><br/><br/>
                 <p><button>Join now</button></p>
             </div>
-            <div class={classes.card}>
+            <div className={classes.card}>
                 <h1>Pro</h1>
-                <p class={classes.price}>60zl/month</p>
+                <p className={classes.price}>60zl/month</p>
                 <b>200 Mb/s</b>
                 <p>Services included:</p>
                 <b>Internet Analysis</b>
@@ -77,9 +77,9 @@ const Main = () => {
                 <b>Parental Control</b>
                 <p><button>Join now</button></p>
             </div>
-            <div class={classes.card}>
+            <div className={classes.card}>
                 <h1>Enterprise</h1>
-                <p class={classes.price}>from 100zl/month</p>
+                <p className={classes.price}>from 100zl/month</p>
                 <b>500 Mb/s</b>
                 <p>Services included:</p>
                 <b>Expand internet capacity</b><br/>
@@ -96,34 +96,35 @@ const Main = () => {
             <div className={classes.form__inputs}>
                 <div className={classes.form__input__group}>
                     <b>Email</b>
-                    <input type='text' autocomplete='email' name='email' placeholder='Your email'></input>
+                    <input type='text' autoComplete='email' name='email' placeholder='Your email'></input>
                 </div>
                 <div className={classes.form__input__group}>
                     <b>Name</b>
-                    <input type='text' autocomplete='name' name='name' placeholder='Your name'></input>
+                    <input type='text' autoComplete='name' name='name' placeholder='Your name'></input>
                 </div>
                 <div className={classes.form__input__group}>
                     <b>Phone</b>
-                    <input type='tel' autocomplete='tel' name='Phone' placeholder='Your phone' pattern="[0-9]*"></input>
+                    <input type='tel' autoComplete='tel' name='Phone' placeholder='Your phone' pattern="[0-9]*"></input>
                 </div>        
                 <div className={classes.form__input__group}>
                     <b>Address</b>
-                    <input type='text' autocomplete='Address' name='address' placeholder='Your address'></input>
+                    <input type='text' autoComplete='Address' name='address' placeholder='Your address'></input>
                 </div>  
             </div>
+            
             <div className={classes.form__radio}>
-                <input id="basic" type="radio" name="radio" value="basic" checked/>
-                <label for="basic">Basic</label>
+                <input id="basic" type="radio" name="radio" value="basic"/>
+                <label htmlFor="basic">Basic</label>
             </div>
             
             <div className={classes.form__radio}>
                 <input id="pro" type="radio" name="radio" value="pro"/>
-                <label for="pro">Pro</label>
+                <label htmlFor="pro">Pro</label>
             </div>
             
             <div className={classes.form__radio}>
                 <input id="enterprise" type="radio" name="radio" value="enterprise"/>
-                <label for="enterprise">Enterprise</label>
+                <label htmlFor="enterprise">Enterprise</label>
             </div>
             <div className={classes.form__submit}>
                 <button>Submit</button>
