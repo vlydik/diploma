@@ -3,6 +3,7 @@ import classes from './Main.module.css';
 import star from '../../../gallery/star.svg';
 import chat from '../../../gallery/chat.svg';
 import man from '../../../gallery/man.svg';
+import Form from "../Form/Form";
 
 const Main = () => {
     return(
@@ -56,18 +57,18 @@ const Main = () => {
             <a>Reliable speed. 24/7 Support. All the time.</a>
         </section>
         <div className={classes.product__cards}>
-            <div className={classes.card}>
+            <div class={classes.card}>
                 <h1>Standard</h1>
-                <p className={classes.price}>30zl/month</p>
+                <p class={classes.price}>30zl/month</p>
                 <b>100 Mb/s</b>
                 <p>Services included:</p>
                 <b>Internet Analysis</b>
                 <br/><br/><br/>
                 <p><button>Join now</button></p>
             </div>
-            <div className={classes.card}>
+            <div class={classes.card}>
                 <h1>Pro</h1>
-                <p className={classes.price}>60zl/month</p>
+                <p class={classes.price}>60zl/month</p>
                 <b>200 Mb/s</b>
                 <p>Services included:</p>
                 <b>Internet Analysis</b>
@@ -77,9 +78,9 @@ const Main = () => {
                 <b>Parental Control</b>
                 <p><button>Join now</button></p>
             </div>
-            <div className={classes.card}>
+            <div class={classes.card}>
                 <h1>Enterprise</h1>
-                <p className={classes.price}>from 100zl/month</p>
+                <p class={classes.price}>from 100zl/month</p>
                 <b>500 Mb/s</b>
                 <p>Services included:</p>
                 <b>Expand internet capacity</b><br/>
@@ -88,48 +89,7 @@ const Main = () => {
                 <p><button>Join now</button></p>
             </div>
         </div>
-        <div className={classes.user__form}>
-            <div className={classes.form__text}>
-                <h1>Would you like to connect?</h1>
-                <h3>If so, then enter information below and we will try to help you.</h3>
-            </div>
-            <div className={classes.form__inputs}>
-                <div className={classes.form__input__group}>
-                    <b>Email</b>
-                    <input type='text' autoComplete='email' name='email' placeholder='Your email'></input>
-                </div>
-                <div className={classes.form__input__group}>
-                    <b>Name</b>
-                    <input type='text' autoComplete='name' name='name' placeholder='Your name'></input>
-                </div>
-                <div className={classes.form__input__group}>
-                    <b>Phone</b>
-                    <input type='tel' autoComplete='tel' name='Phone' placeholder='Your phone' pattern="[0-9]*"></input>
-                </div>        
-                <div className={classes.form__input__group}>
-                    <b>Address</b>
-                    <input type='text' autoComplete='Address' name='address' placeholder='Your address'></input>
-                </div>  
-            </div>
-            
-            <div className={classes.form__radio}>
-                <input id="basic" type="radio" name="radio" value="basic"/>
-                <label htmlFor="basic">Basic</label>
-            </div>
-            
-            <div className={classes.form__radio}>
-                <input id="pro" type="radio" name="radio" value="pro"/>
-                <label htmlFor="pro">Pro</label>
-            </div>
-            
-            <div className={classes.form__radio}>
-                <input id="enterprise" type="radio" name="radio" value="enterprise"/>
-                <label htmlFor="enterprise">Enterprise</label>
-            </div>
-            <div className={classes.form__submit}>
-                <button>Submit</button>
-            </div>
-        </div>
+        <Form/>
         </Fragment>
     );
 }
