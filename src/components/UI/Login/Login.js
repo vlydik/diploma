@@ -27,7 +27,7 @@ const Login = () => {
                     <div className={classes.login__form__wrap}>
                         <div className={classes.login__item}>
                             <h4>Email</h4>
-                            <input name="email" placeholder="email@example.com" type="text" ref={emailInputRef} autoFocus required></input>
+                            <input name="email" placeholder="email@example.com" type="text" ref={emailInputRef} required></input>
                         </div>
                         <div className={classes.login__item}>
                             <h4>Password</h4>

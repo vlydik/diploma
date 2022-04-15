@@ -25,9 +25,9 @@ const Header = () => {
           <div className={classes.logo} onClick={mainPageHandler}>Flex</div>
             <nav>
               <ul>
-                {!isLoggedIn && <li><a>About</a></li>}
-                {!isLoggedIn && <li><a>Tariffs</a></li>}
-                {!isLoggedIn && <li><a>Request</a></li>}
+                {!isLoggedIn && <li><a onClick={mainPageHandler}>About</a></li>}
+                {!isLoggedIn && <li><a onClick={mainPageHandler}>Tariffs</a></li>}
+                {!isLoggedIn && <li><a onClick={mainPageHandler}>Request</a></li>}
                 {!isLoggedIn && <button onClick={loginHandler}>Login</button>}
                 {isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
               </ul>
