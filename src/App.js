@@ -11,11 +11,11 @@ function App() {
   return (
     <Layout>
       <BrowserRouter>
-      <Switch>
-        <Route path='/' exact>
-          <HomePage/>
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path='/' exact>
+            <HomePage/>
+          </Route>
+        </Switch>
       </BrowserRouter>
     </Layout>
   );

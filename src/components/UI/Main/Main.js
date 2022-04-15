@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import react, { Fragment } from "react";
 import classes from './Main.module.css';
 import star from '../../../gallery/star.svg';
 import chat from '../../../gallery/chat.svg';
