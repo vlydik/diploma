@@ -1,7 +1,8 @@
-import react, { useRef, useContext } from "react";
+import react, { useRef, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import classes from './Login.module.css';
 import AuthContext from "../../store/AuthContext";
+import ErrorHandlerModal from '../ErrorHandler/ErrorHandlerModal';
 
 const Login = () => {
     const history = useHistory();
@@ -10,6 +11,12 @@ const Login = () => {
 
     const authCtx = useContext(AuthContext);
 
+    
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const [isError, setIsError] = useState(false);
+
     const submitLoginHandler = (event) => {
         event.preventDefault();
         const enteredEmail = emailInputRef.current.value;
@@ -17,6 +24,35 @@ const Login = () => {
 
         console.log(enteredEmail);
         console.log(enteredPassword);
+
+        setIsLoading(true);
+
+        let url = 'http://api.google.com/';
+
+        fetch(url,
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: enteredEmail,
+                    password: enteredPassword,
+                    //secureToken
+                }),
+                headers:{
+                    'Content-Type' : 'application/json',
+                },
+            }).then((res) => {
+                setIsLoading(false);
+                if(res.ok){
+                    console.log(res);
+                    return res.json();
+                }
+                else{
+                    return res.json().then((data) => {
+                        let errorMessage = 'Authentication failed! Please try again.';
+                        <ErrorHandlerModal data={errorMessage}/>
+                    })
+                }
+            })
     }
 
     return(
