@@ -59,9 +59,9 @@ const Login = () => {
                 authCtx.login(data.idToken);
                 history.replace('/');
             }).catch((err) => {
-                console.log("error");
                 let errorMessage = 'Authentication failed! Please try again.';
-                <ErrorHandlerModal data={errorMessage}/>
+                console.log(errorMessage);
+                return <ErrorHandlerModal data={errorMessage}/>;
             });
     };
 
