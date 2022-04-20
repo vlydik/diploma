@@ -27,7 +27,7 @@ const Login = () => {
 
         setIsLoading(true);
 
-        let url = 'http://api.google.com/';
+        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBoLdVRZ5gvoLjhuhyTfvesjujjiNmQx7w';
 
         fetch(url,
             {
@@ -35,6 +35,7 @@ const Login = () => {
                 body: JSON.stringify({
                     email: enteredEmail,
                     password: enteredPassword,
+                    returnSecureToken: true,
                     //secureToken
                 }),
                 headers:{
@@ -44,6 +45,7 @@ const Login = () => {
                 setIsLoading(false);
                 if(res.ok){
                     console.log(res);
+                    console.log("success!")
                     return res.json();
                 }
                 else{
@@ -53,7 +55,15 @@ const Login = () => {
                     })
                 }
             })
-    }
+            .then((data) => {
+                authCtx.login(data.idToken);
+                history.replace('/');
+            }).catch((err) => {
+                console.log("error");
+                let errorMessage = 'Authentication failed! Please try again.';
+                <ErrorHandlerModal data={errorMessage}/>
+            });
+    };
 
     return(
         <div className={classes.login__container}>
