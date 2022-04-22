@@ -1,8 +1,9 @@
-import react, { useRef, useContext, useState } from "react";
+import React, { useRef, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import classes from './Login.module.css';
 import AuthContext from "../../store/AuthContext";
 import ErrorHandlerModal from '../ErrorHandler/ErrorHandlerModal';
+
 
 const Login = () => {
     const history = useHistory();
@@ -16,6 +17,11 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const [isError, setIsError] = useState(false);
+
+    const errorHandler = () => {
+        setIsError(null);
+    }
+    
 
     const submitLoginHandler = (event) => {
         event.preventDefault();
@@ -51,7 +57,6 @@ const Login = () => {
                 else{
                     return res.json().then((data) => {
                         let errorMessage = 'Authentication failed! Please try again.';
-                        <ErrorHandlerModal data={errorMessage}/>
                     })
                 }
             })
@@ -61,31 +66,36 @@ const Login = () => {
             }).catch((err) => {
                 let errorMessage = 'Authentication failed! Please try again.';
                 console.log(errorMessage);
-                return <ErrorHandlerModal data={errorMessage}/>;
+                setIsError(true);
+                setIsLoading(false);
             });
     };
 
     return(
-        <div className={classes.login__container}>
-            <div className={classes.login__form}>
-                <h1>Authorization</h1>
-                <form>
-                    <div className={classes.login__form__wrap}>
-                        <div className={classes.login__item}>
-                            <h4>Email</h4>
-                            <input name="email" placeholder="email@example.com" type="text" ref={emailInputRef} required></input>
+        <React.Fragment>
+            {isError && <ErrorHandlerModal data="Authentication failed! Please try again!" onConfirm={errorHandler}/>}
+            <div className={classes.login__container}>
+                <div className={classes.login__form}>
+                    <h1>Authorization</h1>
+                    <form>
+                        <div className={classes.login__form__wrap}>
+                            <div className={classes.login__item}>
+                                <h4>Email</h4>
+                                <input name="email" placeholder="email@example.com" type="text" ref={emailInputRef} required></input>
+                            </div>
+                            <div className={classes.login__item}>
+                                <h4>Password</h4>
+                                <input name="password" placeholder="password" type="password" ref={passwordInputRef} required></input>
+                            </div>
+                            {isLoading && <p>Loading...</p>}
+                            <button onClick={submitLoginHandler}>
+                                Enter
+                            </button>
                         </div>
-                        <div className={classes.login__item}>
-                            <h4>Password</h4>
-                            <input name="password" placeholder="password" type="password" ref={passwordInputRef} required></input>
-                        </div>
-                        <button onClick={submitLoginHandler}>
-                            Enter
-                        </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
+        </React.Fragment>
     )
 }
 export default Login;
