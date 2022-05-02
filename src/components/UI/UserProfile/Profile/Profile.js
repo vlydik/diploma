@@ -5,6 +5,7 @@ import Tariffs from "../Tariffs/Tariffs";
 const Profile = () => {
     <Layout>
         <Tariffs/>
+        {console.log("rendering....")}
     </Layout>
 }
 

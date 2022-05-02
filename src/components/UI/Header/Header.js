@@ -12,6 +12,9 @@ const Header = () => {
   const isLoggedIn = authCtx.isLogged;
   
   const loginHandler = () => {
+    if(authCtx.isLogged){
+      history.push('/profile');
+    }
     history.push('/login');
   }
   const logoutHandler = () => {
@@ -40,7 +43,7 @@ const Header = () => {
                   const section = document.querySelector( '#request' );
                   section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
                 }}>Request</a></li>}
-                {!isLoggedIn && <button onClick={loginHandler}>Login</button>}
+                <button onClick={loginHandler}>My profile</button>
                 {isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
               </ul>
             </nav>

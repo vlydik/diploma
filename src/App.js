@@ -25,7 +25,6 @@ function App() {
           )}
           <Route path='/profile'>
             {authCtx.isLogged && <UserPage/>}
-            {console.log(authCtx.isLogged)}
             {!authCtx.isLogged && <Redirect to='/login'/>}
           </Route>
           <Route path='*'>

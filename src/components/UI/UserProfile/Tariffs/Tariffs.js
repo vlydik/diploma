@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./Tariffs.module.css"
 
 const Tariffs = () => {
-
+console.log("Rendering...");
 return (
     <div>
         <section className={classes.plans} href="#plans" id="plans">
