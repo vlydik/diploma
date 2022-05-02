@@ -16,7 +16,7 @@ const Header = () => {
     history.push('/login');
   }
   const logoutHandler = () => {
-
+    authCtx.logout();
   }
   const mainPageHandler = () => {
     history.push('/')

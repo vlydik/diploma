@@ -50,7 +50,6 @@ const Login = () => {
             }).then((res) => {
                 setIsLoading(false);
                 if(res.ok){
-                    console.log(res);
                     console.log("success!")
                     return res.json();
                 }
@@ -62,7 +61,9 @@ const Login = () => {
             })
             .then((data) => {
                 authCtx.login(data.idToken);
-                history.replace('/');
+                console.log(data.idToken);
+                console.log("Going to profile...");
+                history.replace('/profile');
             }).catch((err) => {
                 let errorMessage = 'Authentication failed! Please try again.';
                 console.log(errorMessage);

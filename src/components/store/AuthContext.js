@@ -8,5 +8,39 @@ const AuthContext = React.createContext({
     login: (token) => {},
     logout: () => {},
 });
+
+
+
+export const AuthContextProvider = (props) => {
+    const storedToken = localStorage.getItem('token');
+    const [token, setToken] = useState(storedToken);
+    const userIsLoggedIn = !!token;
+    console.log(token);
+
+
+    const loginHandler = (token) => {
+        setToken(token);
+        console.log("setting token...")
+        localStorage.setItem('token', token);
+    };
+    
+    const logoutHandler = useCallback(() => {
+        setToken(null);
+        localStorage.removeItem('token');
+      }, []);
+
+      const contextValue = {
+        token: token,
+        isLogged: userIsLoggedIn,
+        login: loginHandler,
+        logout: logoutHandler,
+      };
+
+    return (
+        <AuthContext.Provider value={contextValue}>
+            {props.children}
+        </AuthContext.Provider>
+    )
+}
     
 export default AuthContext;
