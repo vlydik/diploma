@@ -1,5 +1,3 @@
-import react from "react";
-
 import Login from "../UI/Login/Login";
 
 const LoginPage = () => {

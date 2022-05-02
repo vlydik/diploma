@@ -1,4 +1,4 @@
-import react, { useState, useRef } from "react";
+import { useState } from "react";
 import classes from "./Form.module.css"
 import useInput from "../../../hooks/use-input-form";
 
@@ -7,8 +7,6 @@ const Form = (props) => {
     const [enteredPlan, setEnteredPlan] = useState();
     const [enteredPlanIsValid, setEnteredPlanIsValid] = useState(false);
     const [formIsValid, setFormIsValid] = useState(false);
-
-
 
     const{
         value: enteredEmail,
@@ -50,14 +48,19 @@ const Form = (props) => {
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
-        if(enteredEmailIsValid && enteredNameIsValid && enteredPhoneIsValid && enteredAddressIsValid && enteredPlanIsValid && formIsValid){
-            setFormIsValid(true);
-            console.log(enteredName);
-            console.log(enteredEmail);
-            console.log(enteredAddress);
-            console.log(enteredPhone);
-            console.log(enteredPlan);
-            resetAllInputs();
+        if(enteredEmailIsValid 
+            && enteredNameIsValid 
+            && enteredPhoneIsValid 
+            && enteredAddressIsValid 
+            && enteredPlanIsValid 
+            && formIsValid){
+                setFormIsValid(true);
+                console.log(enteredName);
+                console.log(enteredEmail);
+                console.log(enteredAddress);
+                console.log(enteredPhone);
+                console.log(enteredPlan);
+                resetAllInputs();
         }
         return;
         

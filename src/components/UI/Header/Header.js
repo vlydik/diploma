@@ -1,4 +1,4 @@
-import React, {useContext, useCallback, useState, useRef} from "react";
+import React, {useContext} from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 import classes from './Header.module.css';
@@ -8,7 +8,6 @@ const Header = () => {
   const history = useHistory();
   const authCtx = useContext(AuthContext);
   
-  const scrollRef = useRef(null);
 
   const isLoggedIn = authCtx.isLogged;
   
@@ -17,9 +16,6 @@ const Header = () => {
   }
   const logoutHandler = () => {
     authCtx.logout();
-  }
-  const mainPageHandler = () => {
-    history.push('/')
   }
 
 

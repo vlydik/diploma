@@ -1,14 +1,13 @@
-import react, { useContext } from 'react';
-import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { useContext } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/pages/HomePage';
 import LoginPage from './components/pages/LoginPage';
+import UserPage from './components/pages/UserPage';
 import AuthContext from './components/store/AuthContext';
 
-import Header from './components/UI/Header/Header';
 import Layout from './components/UI/Helpers/Layout/Layout';
-import Main from './components/UI/HomePageUI/Main/Main';
-import Profile from './components/UI/UserProfile/Profile/Profile';
+
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -25,7 +24,8 @@ function App() {
           </Route>
           )}
           <Route path='/profile'>
-            {authCtx.isLogged && <Profile/>}
+            {authCtx.isLogged && <UserPage/>}
+            {console.log(authCtx.isLogged)}
             {!authCtx.isLogged && <Redirect to='/login'/>}
           </Route>
           <Route path='*'>

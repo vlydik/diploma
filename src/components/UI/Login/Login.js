@@ -55,7 +55,7 @@ const Login = () => {
                 }
                 else{
                     return res.json().then((data) => {
-                        let errorMessage = 'Authentication failed! Please try again.';
+                        return;
                     })
                 }
             })
