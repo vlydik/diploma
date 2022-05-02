@@ -13,7 +13,7 @@ const Main = () => {
             <h2>Everything that you dreamed of can be brought to life exactly at the moment when you decide to win.</h2>
             <button>Connect now!</button>
         </section>
-        <section className={classes.about}>
+        <section className={classes.about} href="#about" id="about">
             <h1>Why choose us?</h1>
             <a>We work hard every day to make life of our clients better and happier</a>
             <div className={classes.about_icons}>
@@ -52,7 +52,7 @@ const Main = () => {
                 </div>
             </div>
         </section>
-        <section className={classes.plans}>
+        <section className={classes.plans} href="#plans" id="plans">
             <h1>Our plans</h1>
             <a>Reliable speed. 24/7 Support. All the time.</a>
         </section>
