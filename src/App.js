@@ -5,7 +5,7 @@ import HomePage from './components/pages/HomePage';
 import LoginPage from './components/pages/LoginPage';
 
 import Header from './components/UI/Header/Header';
-import Layout from './components/UI/Layout/Layout';
+import Layout from './components/UI/Helpers/Layout/Layout';
 import Main from './components/UI/HomePageUI/Main/Main';
 
 function App() {
