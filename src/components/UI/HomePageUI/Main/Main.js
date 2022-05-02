@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
 import classes from './Main.module.css';
-import star from '../../../gallery/star.svg';
-import chat from '../../../gallery/chat.svg';
-import man from '../../../gallery/man.svg';
+import star from '../../../../gallery/star.svg';
+import chat from '../../../../gallery/chat.svg';
+import man from '../../../../gallery/man.svg';
 import Form from "../Form/Form";
 
 const Main = () => {
     return(
         <Fragment>
-        <section className={classes.starting}>
+        <section className={classes.starting} href="#main" id="main">
             <h1>We connect people around Poland</h1>
             <h2>Everything that you dreamed of can be brought to life exactly at the moment when you decide to win.</h2>
             <button>Connect now!</button>

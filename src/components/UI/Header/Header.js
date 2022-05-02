@@ -25,7 +25,11 @@ const Header = () => {
 
     return (
         <header className={classes.header}>
-          <div className={classes.logo} onClick={mainPageHandler}>Flex</div>
+          <div className={classes.logo} onClick={() => {
+                  history.push('/');
+                  const section = document.querySelector( '#main' );
+                  section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+                }}>Flex</div>
             <nav>
               <ul>
                 {!isLoggedIn && <li><a onClick={() => {

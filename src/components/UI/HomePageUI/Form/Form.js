@@ -1,6 +1,6 @@
 import react, { useState, useRef } from "react";
 import classes from "./Form.module.css"
-import useInput from "../../hooks/use-input-form";
+import useInput from "../../../hooks/use-input-form";
 
 const Form = (props) => {
 
