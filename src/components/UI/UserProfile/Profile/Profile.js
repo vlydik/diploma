@@ -3,10 +3,10 @@ import Layout from "../../Helpers/Layout/Layout";
 import Tariffs from "../Tariffs/Tariffs";
 
 const Profile = () => {
-    <Layout>
+    return(<Layout>
         <Tariffs/>
         {console.log("rendering....")}
-    </Layout>
+    </Layout>);
 }
 
 export default Profile;

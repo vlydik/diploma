@@ -7,6 +7,7 @@ import UserPage from './components/pages/UserPage';
 import AuthContext from './components/store/AuthContext';
 
 import Layout from './components/UI/Helpers/Layout/Layout';
+import Profile from './components/UI/UserProfile/Profile/Profile';
 
 
 function App() {
@@ -24,12 +25,13 @@ function App() {
           </Route>
           )}
           <Route path='/profile'>
-            {authCtx.isLogged && <UserPage/>}
-            {!authCtx.isLogged && <Redirect to='/login'/>}
+              {!authCtx.isLogged && <Redirect to='/login'/>}
+              {authCtx.isLogged && <UserPage/>}
           </Route>
+        
           <Route path='*'>
-          <Redirect to='/' />
-        </Route>
+            <Redirect to='/' />
+          </Route>
         </Switch>
     </Layout>
   );

@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 import classes from './Header.module.css';
 
@@ -14,9 +14,12 @@ const Header = () => {
   const loginHandler = () => {
     if(authCtx.isLogged){
       history.push('/profile');
+      }
+    else{
+      history.push('/login');
     }
-    history.push('/login');
-  }
+    }
+
   const logoutHandler = () => {
     authCtx.logout();
   }

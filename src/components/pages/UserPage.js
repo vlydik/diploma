@@ -3,7 +3,7 @@ import Profile from "../UI/UserProfile/Profile/Profile";
 
 
 const UserPage = () => {
-    <Profile/>
+    return(<Profile/>);
 }
 
 export default UserPage;
