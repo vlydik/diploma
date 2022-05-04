@@ -1,12 +1,16 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Layout from "../../Helpers/Layout/Layout";
+import Balance from "../Balance/Balance";
 import Tariffs from "../Tariffs/Tariffs";
 
 const Profile = () => {
-    return(<Layout>
+    return (
+    <Fragment>
+        <Balance/>
         <Tariffs/>
         {console.log("rendering....")}
-    </Layout>);
+    </Fragment>
+    );
 }
 
 export default Profile;
