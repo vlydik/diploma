@@ -1,11 +1,28 @@
-.div{
+.container {
+    /* Center the content */
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
     display: block;
     background: white;
     margin-top: 80px;
 }
-.h1{
-    color: black;
-    margin-top: 10px;
+
+.container__value {
+    /* Big font size */
+    font-size: 2rem;
+    font-weight: 400;
+    padding-top:30px;
     margin-bottom: 0;
     text-align: center;
+    
+}
+
+.container__label {
+    /* Smaller font size */
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+    /* Uppercase the label */
+    text-transform: uppercase;
 }

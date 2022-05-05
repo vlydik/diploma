@@ -1,0 +1,43 @@
+.container{
+    background: white;
+    padding-top: 20px;
+    text-align: center;
+}
+.services h3{
+    font-size: 30px;
+    font-weight: 500;
+    margin:0;
+    text-align:center;
+}
+.services a{
+    margin-top: 10px;
+    text-align: center;
+}
+.product__container{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 100%;
+    display: table;
+}
+.product__card{
+    background-color: white;
+    display: block;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.product__card__wrapper{
+    border-radius: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+}

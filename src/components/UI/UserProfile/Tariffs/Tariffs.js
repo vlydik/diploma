@@ -7,8 +7,7 @@ console.log("Rendering...");
 return (
     <div>
         <section className={classes.plans} href="#plans" id="plans">
-            <h1>Our plans</h1>
-            <a>Reliable speed. 24/7 Support. All the time.</a>
+            <h1>Would you like to change your plan?</h1>
         </section>
         <div className={classes.product__cards}>
             <div className={classes.card}>
