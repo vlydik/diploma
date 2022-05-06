@@ -3,7 +3,6 @@ import React from "react";
 import classes from "./Tariffs.module.css"
 
 const Tariffs = () => {
-console.log("Rendering...");
 return (
     <div>
         <section className={classes.plans} href="#plans" id="plans">
@@ -17,7 +16,9 @@ return (
                 <p>Services included:</p>
                 <b>Internet Analysis</b>
                 <br/><br/><br/>
-                <p><button>Join now</button></p>
+                <p><button onClick={()=>{
+                    //TODO send connection request to administrator with userID and service that user would like to connect
+                }}>Change</button></p>
             </div>
             <div className={classes.card}>
                 <h1>Pro</h1>
@@ -29,7 +30,9 @@ return (
                 <b>Static IP</b>
                 <br/>
                 <b>Parental Control</b>
-                <p><button>Join now</button></p>
+                <p><button onClick={()=>{
+                    //TODO send connection request to administrator with userID and service that user would like to connect
+                }}>Change</button></p>
             </div>
             <div className={classes.card}>
                 <h1>Enterprise</h1>
@@ -39,7 +42,9 @@ return (
                 <b>Expand internet capacity</b><br/>
                 <b>All services from Pro</b><br/>
                 <b>Premium support</b><br/>
-                <p><button>Join now</button></p>
+                <p><button onClick={()=>{
+                    //TODO send connection request to administrator with userID and service that user would like to connect
+                }}>Change</button></p>
             </div>
         </div>
     </div>

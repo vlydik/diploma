@@ -8,6 +8,7 @@ import AuthContext from './components/store/AuthContext';
 
 import Layout from './components/UI/Helpers/Layout/Layout';
 import Profile from './components/UI/UserProfile/Profile/Profile';
+import Statistics from './components/UI/UserProfile/Statistics/Statistics';
 
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
           <Route path='/profile'>
               {!authCtx.isLogged && <Redirect to='/login'/>}
               {authCtx.isLogged && <UserPage/>}
+          </Route>
+          <Route path='/profile/statistics'>
+            {!authCtx.isLogged && <Redirect to='/login'/>}
+            {authCtx.isLogged && <Statistics/>}
           </Route>
         
           <Route path='*'>

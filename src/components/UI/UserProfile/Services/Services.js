@@ -1,44 +1,46 @@
 import classes from './Services.module.css';
 
 
+
 const Services = () => {
     return(
-        <div className={classes.container}>
-            <div className={classes.services}>
-                <h3>
-                    Additional services
-                </h3>
-                <a>
-                    Make your internet safer.
-                </a>
+        <div>
+        <section className={classes.services}>
+            <h1>Some additional services</h1>
+        </section>
+        <div className={classes.product__cards}>
+            <div className={classes.card}>
+                <h1>Static IP</h1>
+                <p className={classes.price}>70zl/month</p>
+                <p>Dedicated IP Address</p>
+                <p>Reliable connection</p>
+                <p>Suitable for IP cameras</p>
+                <p><button onClick={()=>{
+                    //TODO send connection request to administrator with userID and service that user would like to connect
+                }}>Connect</button></p>
             </div>
-            <div className={classes.product__container}>
-                <div className={classes.product__card}>
-                    <div className={classes.product__card__wrapper}>
-                        <h3>Static IP</h3>
-                        <div className={classes.product__card__content}>
-
-                        </div>
-                    </div>
-                </div>
-                <div className={classes.product__card}>
-                    <div className={classes.product__card__wrapper}>
-                        <h3>Static IP</h3>
-                        <div className={classes.product__card__content}>
-
-                        </div>
-                    </div>
-                </div>
-                <div className={classes.product__card}>
-                    <div className={classes.product__card__wrapper}>
-                        <h3>Static IP</h3>
-                        <div className={classes.product__card__content}>
-
-                        </div>
-                    </div>
-                </div>
+            <div className={classes.card}>
+                <h1>Parental Control</h1>
+                <p className={classes.price}>30zl/month</p>
+                <p>Block websites</p>
+                <p>Block IP addresses</p>
+                <p>Make internet safer</p>
+                <p><button onClick={()=>{
+                    //TODO send connection request to administrator with userID and service that user would like to connect
+                }}>Connect</button></p>
+            </div>
+            <div className={classes.card}>
+                <h1>IPTV</h1>
+                <p className={classes.price}>20zl/month per device</p>
+                <p>40+ TV Channels</p>
+                <p>20+ Full HD TV Channels</p>
+                <p>Reliable connection</p>
+                <p><button onClick={()=>{
+                    //TODO send connection request to administrator with userID and service that user would like to connect
+                }}>Connect</button></p>
             </div>
         </div>
+    </div>
     )
 
 }
