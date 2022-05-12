@@ -25,11 +25,11 @@ function App() {
             <LoginPage/>
           </Route>
           )}
-          <Route path='/profile'>
+          <Route path='/profile' exact>
               {!authCtx.isLogged && <Redirect to='/login'/>}
               {authCtx.isLogged && <UserPage/>}
           </Route>
-          <Route path='/profile/statistics'>
+          <Route path='/profile/statistics' exact>
             {!authCtx.isLogged && <Redirect to='/login'/>}
             {authCtx.isLogged && <Statistics/>}
           </Route>
