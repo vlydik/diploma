@@ -18,7 +18,7 @@ const Controls = () => {
                     Top-up Balance
                 </button>
                 <button className={classes.button}>
-                    Check statistics
+                    Freeze account
                 </button>
             </div>
         </div>
