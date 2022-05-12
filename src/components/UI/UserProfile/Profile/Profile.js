@@ -6,6 +6,7 @@ import Services from "../Services/Services";
 import Controls from "../Controls/Controls";
 import Notifications from "../Notifications/Notifications";
 import Equipment from "../Equipment/Equipment";
+import Payments from "../PaymentHistory/Payments";
 
 const Profile = () => {
     return (
@@ -16,6 +17,7 @@ const Profile = () => {
         <Controls/>
         <Notifications/>
         <Equipment/>
+        <Payments/>
     </Fragment>
     );
 }
