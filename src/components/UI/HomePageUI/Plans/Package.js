@@ -40,3 +40,5 @@ const Package = () => {
         </li>
     )
 }
+
+export default Package;

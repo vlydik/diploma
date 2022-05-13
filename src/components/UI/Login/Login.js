@@ -61,7 +61,7 @@ const Login = () => {
             })
             .then((data) => {
                 authCtx.login(data.idToken);
-                history.replace('/profile');
+                {authCtx.isLogged && history.replace('/profile');}
             }).catch((err) => {
                 let errorMessage = 'Authentication failed! Please try again.';
                 setIsError(true);

@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import classes from "./Form.module.css"
 import useInput from "../../../hooks/use-input-form";
 
-const Form = (props) => {
+const Form = () => {
 
-    const [enteredPlan, setEnteredPlan] = useState();
+    const enteredPlan = useRef();
     const [enteredPlanIsValid, setEnteredPlanIsValid] = useState(false);
-    const [formIsValid, setFormIsValid] = useState(false);
+    const enteredHouseType = useRef();
+    const [enteredHouseTypeIsValid, setEnteredHouseTypeIsValid] = useState(false);
+    let formIsValid;
 
     const{
         value: enteredEmail,
@@ -33,7 +35,7 @@ const Form = (props) => {
         valueChangeHandler: phoneChangeHandler,
         inputBlurHandler: phoneBlurHandler,
         reset: resetPhoneInput
-    } = useInput((value) => !isNaN(value) & value.trim() !== '');
+    } = useInput((value) => value.trim() !== '' && value.trim().match("[0-9]*") !== "false");
 
     const{
         value: enteredAddress,
@@ -44,30 +46,41 @@ const Form = (props) => {
         reset: resetAddressInput
     } = useInput((value) => value.trim() !== '');
 
+    if(enteredEmailIsValid 
+        && enteredNameIsValid 
+        && enteredPhoneIsValid 
+        && enteredAddressIsValid 
+        && enteredPlanIsValid 
+        && enteredHouseTypeIsValid
+        ){
+            formIsValid = true;
+    }
+
 
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
-        if(enteredEmailIsValid 
-            && enteredNameIsValid 
-            && enteredPhoneIsValid 
-            && enteredAddressIsValid 
-            && enteredPlanIsValid 
-            && formIsValid){
-                setFormIsValid(true);
+        if(formIsValid){
                 console.log(enteredName);
                 console.log(enteredEmail);
                 console.log(enteredAddress);
+                console.log(enteredHouseType);
                 console.log(enteredPhone);
                 console.log(enteredPlan);
                 resetAllInputs();
         }
+        console.log("Form is not valid");
+
         return;
         
     }
     const planChangeHandler = event => {
-        setEnteredPlan(event.target.value);
+        enteredPlan = event.target.value;
         setEnteredPlanIsValid(true);
+    }
+    const houseTypeChangeHandler = event => {
+        enteredHouseType = event.target.value;
+        setEnteredHouseTypeIsValid(true);
     }
     const resetAllInputs = () => {
         resetNameInput();
@@ -131,6 +144,50 @@ const Form = (props) => {
                             <p>Please provide correct phone number.</p>
                             )}
                 </div>        
+                <div className={classes.form__radio}>
+                <input 
+                    id="apartment_buildings" 
+                    type="radio" 
+                    name="house" 
+                    value="Apartment building"
+                    onChange={houseTypeChangeHandler}
+                    ref={enteredHouseType}
+                    />
+                <label htmlFor="apartment_buildings">Apartment building</label>
+            </div>
+            <div className={classes.form__radio}>
+                <input 
+                    id="low_rise_buildings" 
+                    type="radio" 
+                    name="house" 
+                    value="Low-rise building"
+                    onChange={houseTypeChangeHandler}
+                    ref={enteredHouseType}
+                    />
+                <label htmlFor="low_rise_buildings">Low-rise building</label>
+            </div>
+            <div className={classes.form__radio}>
+                <input 
+                    id="private" 
+                    type="radio" 
+                    name="house" 
+                    value="Private location/house"
+                    onChange={houseTypeChangeHandler}
+                    ref={enteredHouseType}
+                    />
+                <label htmlFor="private">Private location/house</label>
+            </div>
+            <div className={classes.form__radio}>
+                <input 
+                    id="office" 
+                    type="radio" 
+                    name="house" 
+                    value="office"
+                    onChange={houseTypeChangeHandler}
+                    ref={enteredHouseType}
+                    />
+                <label htmlFor="office">Office</label>
+            </div>
                 <div className={classes.form__input__group}>
                     <b>Address</b>
                     <input 
@@ -152,9 +209,10 @@ const Form = (props) => {
                 <input 
                     id="basic" 
                     type="radio" 
-                    name="radio" 
+                    name="package" 
                     value="basic"
                     onChange={planChangeHandler}
+                    ref={enteredPlan}
                     />
                 <label htmlFor="basic">Basic</label>
             </div>
@@ -163,25 +221,26 @@ const Form = (props) => {
                 <input 
                     id="pro" 
                     type="radio" 
-                    name="radio" 
+                    name="package" 
                     value="pro"
                     onChange={planChangeHandler}
+                    ref={enteredPlan}
                     />
                 <label htmlFor="pro">Pro</label>
             </div>
-            
             <div className={classes.form__radio}>
                 <input 
                     id="enterprise" 
                     type="radio" 
-                    name="radio" 
+                    name="package" 
                     value="enterprise"
                     onChange={planChangeHandler}
+                    ref={enteredPlan}
                     />
                 <label htmlFor="enterprise">Enterprise</label>
             </div>
             <div className={classes.form__submit}>
-                <button>Submit</button>
+                <button disabled={!formIsValid} onClick={formSubmitHandler}>Submit</button>
             </div>
             </form>
         </div>

@@ -69,6 +69,7 @@
       line-height: 18px;
       user-select: none;
   }
+
   .form__submit{
     text-align: center;
   }
@@ -85,7 +86,13 @@
     text-align: center;
     height:40px;
     width:100px;
+    
+    
   }
   .form__input__group p{
       color: red;
+  }
+  .form__submit button:disabled{
+    background-color: grey;
+    cursor:not-allowed;
   }
