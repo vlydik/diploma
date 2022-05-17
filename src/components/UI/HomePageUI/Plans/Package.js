@@ -3,7 +3,7 @@ import classes from "./Package.module.css";
 
 const Package = () => {
     return(
-        <li>
+        <li className={classes.list}>
             <div className={classes.product__cards}>
             <div className={classes.card}>
                 <h1>Standard</h1>
