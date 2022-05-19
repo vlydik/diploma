@@ -1,13 +1,17 @@
 import { useState, useRef } from "react";
 import classes from "./Form.module.css";
 import useInput from "../../../hooks/use-input-form";
+import ErrorHandlerModal from "../../Helpers/ErrorHandler/ErrorHandlerModal";
 
 const Form = () => {
-  const enteredPlan = useRef();
+  const [enteredPlan, setEnteredPlan] = useState(null);
   const [enteredPlanIsValid, setEnteredPlanIsValid] = useState(false);
-  const enteredHouseType = useRef();
+  const [enteredHouseType, setEnteredHouseType] = useState(null);
   const [enteredHouseTypeIsValid, setEnteredHouseTypeIsValid] = useState(false);
-  let formIsValid;
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  let formIsValid = false;
 
   const {
     value: enteredEmail,
@@ -58,8 +62,21 @@ const Form = () => {
     formIsValid = true;
   }
 
+  const errorHandler = () => {
+    setShowErrorModal(false);
+  };
+
+  const successHandler = () => {
+    setShowSuccessModal(false);
+    window.location.reload(); 
+  };
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
+    if (!formIsValid) {
+      setShowErrorModal(true);
+    }
+
     if (formIsValid) {
       console.log(enteredName);
       console.log(enteredEmail);
@@ -68,17 +85,19 @@ const Form = () => {
       console.log(enteredPhone);
       console.log(enteredPlan);
       resetAllInputs();
+      setShowSuccessModal(true);
+
     }
-    console.log("Form is not valid");
 
     return;
   };
+
   const planChangeHandler = (event) => {
-    enteredPlan = event.target.value;
+    setEnteredPlan(event.target.value);
     setEnteredPlanIsValid(true);
   };
   const houseTypeChangeHandler = (event) => {
-    enteredHouseType = event.target.value;
+    setEnteredHouseType(event.target.value);
     setEnteredHouseTypeIsValid(true);
   };
   const resetAllInputs = () => {
@@ -90,6 +109,18 @@ const Form = () => {
 
   return (
     <div className={classes.user__form} href="#request" id="request">
+      {showErrorModal && (
+        <ErrorHandlerModal
+          data="Please check whether you have entered all the information!"
+          onConfirm={errorHandler}
+        />
+      )}
+      {showSuccessModal && (
+        <ErrorHandlerModal
+          data="The data has been sent successfully!"
+          onConfirm={successHandler}
+        />
+      )}
       <div className={classes.form__text}>
         <h1>Would you like to connect?</h1>
         <h3>
@@ -148,7 +179,7 @@ const Form = () => {
               name="house"
               value="Apartment building"
               onChange={houseTypeChangeHandler}
-              ref={enteredHouseType}
+              //checked={}
             />
             <label htmlFor="apartment_buildings">Apartment building</label>
           </div>
@@ -159,7 +190,7 @@ const Form = () => {
               name="house"
               value="Low-rise building"
               onChange={houseTypeChangeHandler}
-              ref={enteredHouseType}
+              //checked={}
             />
             <label htmlFor="low_rise_buildings">Low-rise building</label>
           </div>
@@ -170,7 +201,7 @@ const Form = () => {
               name="house"
               value="Private location/house"
               onChange={houseTypeChangeHandler}
-              ref={enteredHouseType}
+              //checked={}
             />
             <label htmlFor="private">Private location/house</label>
           </div>
@@ -181,7 +212,7 @@ const Form = () => {
               name="house"
               value="office"
               onChange={houseTypeChangeHandler}
-              ref={enteredHouseType}
+              //checked={}
             />
             <label htmlFor="office">Office</label>
           </div>
@@ -207,7 +238,7 @@ const Form = () => {
             name="package"
             value="basic"
             onChange={planChangeHandler}
-            ref={enteredPlan}
+            //checked={}
           />
           <label htmlFor="basic">Basic</label>
         </div>
@@ -219,7 +250,7 @@ const Form = () => {
             name="package"
             value="pro"
             onChange={planChangeHandler}
-            ref={enteredPlan}
+            //checked={}
           />
           <label htmlFor="pro">Pro</label>
         </div>
@@ -230,14 +261,12 @@ const Form = () => {
             name="package"
             value="enterprise"
             onChange={planChangeHandler}
-            ref={enteredPlan}
+            //checked={}
           />
           <label htmlFor="enterprise">Enterprise</label>
         </div>
         <div className={classes.form__submit}>
-          <button disabled={!formIsValid} onClick={formSubmitHandler}>
-            Submit
-          </button>
+          <button onClick={formSubmitHandler}>Submit</button>
         </div>
       </form>
     </div>
