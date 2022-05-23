@@ -1,0 +1,29 @@
+.payment__item {
+  background-color: white;
+  padding-right: 10px;
+  width: 50%;
+  
+}
+.payment__item__number {
+  color: white;
+  background-color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+.payment__item__number h4{
+    font-size: 20px;
+}
+.payment__item__data {
+  background-color: rgb(235, 235, 235);
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.payment__item__data b {
+  text-align: center;
+}
+.list__item {
+  text-align: -webkit-center;
+  padding-block: 10px;
+}

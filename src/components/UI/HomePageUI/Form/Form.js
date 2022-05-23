@@ -68,7 +68,7 @@ const Form = () => {
 
   const successHandler = () => {
     setShowSuccessModal(false);
-    window.location.reload(); 
+    window.location.reload();
   };
 
   const formSubmitHandler = (event) => {
@@ -86,7 +86,6 @@ const Form = () => {
       console.log(enteredPlan);
       resetAllInputs();
       setShowSuccessModal(true);
-
     }
 
     return;
@@ -127,7 +126,7 @@ const Form = () => {
           If so, then enter information below and we will try to help you.
         </h3>
       </div>
-      <form onSubmit={formSubmitHandler}>
+      <form onSubmit={formSubmitHandler} className={classes.general__rorm}>
         <div className={classes.form__inputs}>
           <div className={classes.form__input__group}>
             <b>Email</b>
@@ -179,7 +178,6 @@ const Form = () => {
               name="house"
               value="Apartment building"
               onChange={houseTypeChangeHandler}
-              //checked={}
             />
             <label htmlFor="apartment_buildings">Apartment building</label>
           </div>
@@ -190,7 +188,6 @@ const Form = () => {
               name="house"
               value="Low-rise building"
               onChange={houseTypeChangeHandler}
-              //checked={}
             />
             <label htmlFor="low_rise_buildings">Low-rise building</label>
           </div>
@@ -201,7 +198,6 @@ const Form = () => {
               name="house"
               value="Private location/house"
               onChange={houseTypeChangeHandler}
-              //checked={}
             />
             <label htmlFor="private">Private location/house</label>
           </div>
@@ -212,7 +208,6 @@ const Form = () => {
               name="house"
               value="office"
               onChange={houseTypeChangeHandler}
-              //checked={}
             />
             <label htmlFor="office">Office</label>
           </div>
@@ -238,7 +233,6 @@ const Form = () => {
             name="package"
             value="basic"
             onChange={planChangeHandler}
-            //checked={}
           />
           <label htmlFor="basic">Basic</label>
         </div>
@@ -250,7 +244,6 @@ const Form = () => {
             name="package"
             value="pro"
             onChange={planChangeHandler}
-            //checked={}
           />
           <label htmlFor="pro">Pro</label>
         </div>
@@ -261,7 +254,6 @@ const Form = () => {
             name="package"
             value="enterprise"
             onChange={planChangeHandler}
-            //checked={}
           />
           <label htmlFor="enterprise">Enterprise</label>
         </div>

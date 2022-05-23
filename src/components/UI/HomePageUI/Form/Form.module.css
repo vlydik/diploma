@@ -16,6 +16,7 @@
   float: left;
   margin-right: 10px;
   background: white;
+  padding-block: 30px;
 }
 .form__inputs {
   max-width: 620px;
@@ -92,4 +93,7 @@
 .form__submit button:disabled {
   background-color: grey;
   cursor: not-allowed;
+}
+.general__form{
+  margin-block-end: 10px;
 }

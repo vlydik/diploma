@@ -3,19 +3,28 @@ import Payment from "./Payment";
 import classes from "./Payments.module.css";
 
 const Payments = (props) => {
-  if (props.items.length === 0) {
-    return <h2>Found no payments.</h2>;
-  }
+  // if (props.payments.length === 0) {
+  //   return <h2>Found no payments.</h2>;
+  // }
 
   return (
-    <React.Component>
+    <div className={classes.global}>
       <div className={classes.general}>
         <h1>Payment history</h1>
       </div>
       <div className={classes.payments}>
-        <Payment payment_id={props.payment_id} date={props.date} amount={props.amount}/>
+        <ul className={classes.payments__list}>
+          {props.payments.map((payments) => (
+            <Payment
+              key={payments.payment_id}
+              payment_id={payments.payment_id}
+              date={payments.date}
+              amount={payments.amount}
+            />
+          ))}
+        </ul>
       </div>
-    </React.Component>
+    </div>
   );
 };
 
