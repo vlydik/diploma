@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { Fragment } from "react/cjs/react.development";
 import "./App.css";
+import AdminLoginPage from "./components/pages/AdminLoginPage";
 import HomePage from "./components/pages/HomePage";
 import LoginPage from "./components/pages/LoginPage";
 import UserPage from "./components/pages/UserPage";
@@ -14,30 +16,34 @@ function App() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <Layout>
+    <Fragment>
       <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
-        {!authCtx.isLogged && (
-          <Route path="/login">
-            <LoginPage />
+        <Layout>
+          <Route path="/" exact>
+            <HomePage />
           </Route>
-        )}
-        <Route path="/profile" exact>
-          {!authCtx.isLogged && <Redirect to="/login" />}
-          {authCtx.isLogged && <UserPage />}
+          {!authCtx.isLogged && (
+            <Route path="/login">
+              <LoginPage />
+            </Route>
+          )}
+          <Route path="/profile" exact>
+            {!authCtx.isLogged && <Redirect to="/login" />}
+            {authCtx.isLogged && <UserPage />}
+          </Route>
+          <Route path="/profile/statistics" exact>
+            {!authCtx.isLogged && <Redirect to="/login" />}
+            {authCtx.isLogged && <Statistics />}
+          </Route>
+        </Layout>
+        <Route path="/admin" exact>
+          <AdminLoginPage/>
         </Route>
-        <Route path="/profile/statistics" exact>
-          {!authCtx.isLogged && <Redirect to="/login" />}
-          {authCtx.isLogged && <Statistics />}
-        </Route>
-
         <Route path="*">
-          <Redirect to="/" />
-        </Route>
+            <Redirect to="/" />
+          </Route>
       </Switch>
-    </Layout>
+    </Fragment>
   );
 }
 
