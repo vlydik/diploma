@@ -38,15 +38,34 @@ const DUMMY_TARIFFS = [
   },
 ];
 
+const DUMMY_SERVICES = [
+  {
+    service_id: "1",
+    additionalService: "Static IP",
+    additionalServicePrice: 70
+  },
+  {
+    service_id: "2",
+    additionalService: "Parental Control",
+    additionalServicePrice: 30
+  },
+  {
+    service_id: "3",
+    additionalService: "IPTV",
+    additionalServicePrice: 20
+  },
+]
+
 const Profile = () => {
   const [payments, setPayments] = useState(DUMMY_PAYMENTS);
   const [tariffs, setTariffs] = useState(DUMMY_TARIFFS);
+  const [services, setServices] = useState(DUMMY_SERVICES);
 
   return (
     <Fragment>
       <Balance />
       <Tariffs tariffs={tariffs}/>
-      <Services />
+      <Services services={services}/>
       <Controls />
       <Notifications />
       <Equipment />

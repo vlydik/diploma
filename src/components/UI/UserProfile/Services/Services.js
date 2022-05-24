@@ -1,14 +1,28 @@
 import React from "react";
+import Service from "./Service";
 
 import classes from "./Services.module.css";
 
-const Services = () => {
+const Services = (props) => {
   return (
     <div>
       <section className={classes.services}>
         <h1>Some additional services</h1>
       </section>
-      <div className={classes.product__cards}>
+      <ul className={classes.product__cards}>
+      {props.services.map((services) => (
+            <Service
+              key={services.service_id}
+              service_id={services.service_id}
+              additionalService={services.additionalService}
+              additionalServicePrice={services.additionalServicePrice}
+            />
+          ))}
+          </ul>
+
+
+
+      {/* <div className={classes.product__cards}>
         <div className={classes.card}>
           <h1>Static IP</h1>
           <p className={classes.price}>70zl/month</p>
@@ -57,7 +71,7 @@ const Services = () => {
             </button>
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

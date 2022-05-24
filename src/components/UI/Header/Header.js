@@ -23,6 +23,13 @@ const Header = () => {
   const logoutHandler = () => {
     authCtx.logout();
   }
+  const handleClick = (id) => {
+    if(id == null){
+      return;
+    }else{
+      id.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+    }
+  }
 
 
     return (
@@ -30,21 +37,21 @@ const Header = () => {
           <div className={classes.logo} onClick={() => {
                   history.push('/');
                   const section = document.querySelector( '#main' );
-                  section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+                  handleClick(section);
                 }}>Flex</div>
             <nav>
               <ul>
                 {!isLoggedIn && <li><a onClick={() => {
                   const section = document.querySelector( '#about' );
-                  section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+                  handleClick(section);
                 }}>About</a></li>}
                 {!isLoggedIn && <li><a onClick={() => {
                   const section = document.querySelector( '#plans' );
-                  section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+                  handleClick(section);
                 }}>Tariffs</a></li>}
                 {!isLoggedIn && <li><a onClick={() => {
                   const section = document.querySelector( '#request' );
-                  section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+                  handleClick(section);
                 }}>Request</a></li>}
                 <button onClick={loginHandler}>My profile</button>
                 {isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
