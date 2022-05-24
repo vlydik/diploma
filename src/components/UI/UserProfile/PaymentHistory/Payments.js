@@ -3,9 +3,9 @@ import Payment from "./Payment";
 import classes from "./Payments.module.css";
 
 const Payments = (props) => {
-  // if (props.payments.length === 0) {
-  //   return <h2>Found no payments.</h2>;
-  // }
+  if (props.payments.length === 0) {
+    return <h2 className={classes.h2}>Found no payments.</h2>;
+  }
 
   return (
     <div className={classes.global}>

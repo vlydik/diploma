@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import AuthContext from "../../store/AuthContext";
 import classes from './Header.module.css';
 
