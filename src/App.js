@@ -35,13 +35,16 @@ function App() {
             {!authCtx.isLogged && <Redirect to="/login" />}
             {authCtx.isLogged && <Statistics />}
           </Route>
-        </Layout>
-        <Route path="/admin" exact>
-          <AdminLoginPage/>
-        </Route>
-        <Route path="*">
+          {/* <Route>
             <Redirect to="/" />
-          </Route>
+          </Route> */}
+        </Layout>
+      </Switch>
+
+      <Switch>
+        <Route path="/adminlogin" exact>
+          <AdminLoginPage />
+        </Route>
       </Switch>
     </Fragment>
   );
