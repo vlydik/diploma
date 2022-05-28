@@ -25,7 +25,7 @@ const Tariff = (props) => {
             //TODO send connection request to administrator with userID and service that user would like to connect
           }}
         >
-          Change
+          Connect
         </button>
       </p>
     </div>

@@ -1,30 +1,30 @@
-.container{
-    width: 100%;
-    padding: 0;
-    background: white;
-    padding-top:40px;
+.container {
+  width: 100%;
+  padding: 0;
+  background: white;
+  padding-top: 40px;
 }
-.wrapper{
-    padding: 0 10px;
-    position: relative;
-    display: flex;
-    justify-content: center;
+.wrapper {
+  padding: 0 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
-.button{
-    color: #000000;
-    border: 3px solid #000000;
-    margin: 0 10px;
-    margin-bottom: 20px;
-    display: inline-block;
-    height: 60px;
-    border: 0 none;
-    font-size: 16px;
-    padding-left: 60px;
-    padding-right: 60px;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    font-weight: bold;
-    background-image: none;
-    cursor: pointer;
+.button {
+  color: #000000;
+  border: 3px solid #000000;
+  margin: 0 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  height: 60px;
+  border: 0 none;
+  font-size: 16px;
+  padding-left: 60px;
+  padding-right: 60px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-weight: bold;
+  background-image: none;
+  cursor: pointer;
 }
